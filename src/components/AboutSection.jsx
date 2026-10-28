@@ -8,11 +8,18 @@ import {
   Award, 
   Layers, 
   ArrowRight,
-  Sparkles
+  Sparkles,
+  Users,
+  Compass,
+  Target,
+  Zap,
+  Globe
 } from 'lucide-react';
-import { ABOUT_TEXTS } from '../data/workshopData';
+import { ABOUT_TEXTS, WHO_AND_WHY, WORKSHOP_DETAILS } from '../data/workshopData';
 
-export default function AboutSection({ onOpenRegister }) {
+const OBJECTIVE_ICONS = [Target, Compass, Zap, Microscope, Globe];
+
+export default function AboutSection() {
   const [activeTab, setActiveTab] = useState('workshop');
 
   return (
@@ -21,12 +28,12 @@ export default function AboutSection({ onOpenRegister }) {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="text-blue-700 font-extrabold text-xs uppercase tracking-widest bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200 shadow-xs">
-            Institutional Background & Scope
+            Overview & Vision
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 tracking-tight">
-            Advancing Materials Science & Metallurgical Engineering
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 tracking-tight font-serif">
+            About METAMAP 2027 & Host Institution
           </h2>
-          <p className="text-slate-600 text-base mt-2">
+          <p className="text-slate-600 text-sm sm:text-base mt-2">
             Organized by the Department of Metallurgical and Materials Engineering at National Institute of Technology Jamshedpur.
           </p>
           <div className="w-20 h-1.5 bg-gradient-to-r from-amber-500 to-amber-600 mx-auto mt-4 rounded-full" />
@@ -43,7 +50,7 @@ export default function AboutSection({ onOpenRegister }) {
             }`}
           >
             <BookOpen className="w-4 h-4" />
-            <span>About Workshop</span>
+            <span>Objective of Workshop</span>
           </button>
 
           <button
@@ -55,7 +62,7 @@ export default function AboutSection({ onOpenRegister }) {
             }`}
           >
             <Building className="w-4 h-4" />
-            <span>About NIT Jamshedpur</span>
+            <span>About the Institute</span>
           </button>
 
           <button
@@ -67,87 +74,98 @@ export default function AboutSection({ onOpenRegister }) {
             }`}
           >
             <Microscope className="w-4 h-4" />
-            <span>About Dept. of MME</span>
+            <span>About the Department</span>
           </button>
         </div>
 
         {/* Tab Content Display */}
         {activeTab === 'workshop' && (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-slate-50/70 border border-slate-200/80 rounded-3xl p-6 sm:p-10 shadow-sm">
-            <div className="lg:col-span-7 space-y-5">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-3 py-1 rounded-md border border-amber-200">
-                <Sparkles className="w-3.5 h-3.5 text-amber-600" /> Objective of the Workshop
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-snug">
-                Metallurgy: Emerging Trends in Advanced Materials, Microstructural Assessment and Performance (METAMAP 2026)
-              </h3>
-              <p className="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
-                {ABOUT_TEXTS.workshop.objective}
-              </p>
-
-              <div className="pt-2 space-y-2.5">
-                {ABOUT_TEXTS.workshop.highlightPoints.map((pt, i) => (
-                  <div key={i} className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-sm font-medium text-slate-800">{pt}</span>
+          <div className="space-y-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start bg-slate-50/70 border border-slate-200/80 rounded-3xl p-6 sm:p-10 shadow-sm">
+              <div className="lg:col-span-7 space-y-6">
+                <div>
+                  <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-3 py-1 rounded-md border border-amber-200 mb-2">
+                    <Sparkles className="w-3.5 h-3.5 text-amber-600" /> Brochure Blueprint
                   </div>
-                ))}
-              </div>
+                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900 font-serif">
+                    OBJECTIVE OF THE WORKSHOP
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-500 font-medium italic mt-1">
+                    {ABOUT_TEXTS.workshop.tagline}
+                  </p>
+                </div>
 
-              <div className="pt-4 flex items-center gap-4">
-                <button
-                  onClick={onOpenRegister}
-                  className="inline-flex items-center gap-2 bg-blue-900 hover:bg-blue-950 text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl transition-all shadow-md"
-                >
-                  <span>Enroll in METAMAP 2026</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-                <a
-                  href="#schedule"
-                  className="text-xs sm:text-sm font-bold text-blue-700 hover:text-blue-900 hover:underline"
-                >
-                  Explore Day-wise Plan →
-                </a>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 space-y-4">
-              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200">
-                <img
-                  src="/assets/campus_building.jpg"
-                  alt="NIT Jamshedpur Campus"
-                  className="w-full h-64 sm:h-72 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-5">
-                  <div className="text-white">
-                    <p className="font-bold text-sm sm:text-base">Diamond Jubilee Complex & Department of MME</p>
-                    <p className="text-xs text-slate-300">NIT Jamshedpur • Jharkhand 831014</p>
-                  </div>
+                {/* 5 Objectives from Photo 1 */}
+                <div className="space-y-4">
+                  {ABOUT_TEXTS.workshop.objectivesList.map((item, idx) => {
+                    const IconComp = OBJECTIVE_ICONS[idx % OBJECTIVE_ICONS.length];
+                    return (
+                      <div
+                        key={idx}
+                        className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex items-start gap-3.5 hover:border-blue-300 transition-all"
+                      >
+                        <div className="p-2.5 rounded-xl bg-blue-50 text-blue-700 border border-blue-100 flex-shrink-0 mt-0.5">
+                          <IconComp className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-slate-900 text-sm flex items-center gap-2">
+                            <span>{item.title}</span>
+                          </h4>
+                          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-1 text-justify">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-blue-950 to-slate-900 text-white rounded-2xl p-5 shadow-lg space-y-3">
-                <h4 className="font-bold text-amber-400 text-sm uppercase tracking-wider flex items-center gap-2">
-                  <Award className="w-4 h-4 text-amber-400" /> Key Takeaways for Participants
-                </h4>
-                <ul className="text-xs sm:text-sm text-slate-200 space-y-2">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-                    Exposure to next-generation metallic alloy systems
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-                    Hands-on microstructural assessment & characterization
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-                    Structure-property relationship for durable manufacturing
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-                    Computational tools for predictive metallurgical modeling
-                  </li>
-                </ul>
+              {/* Sidebar with Who Should Attend & Why Attend (Photo 2) */}
+              <div className="lg:col-span-5 space-y-6">
+                <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200">
+                  <img
+                    src="/assets/campus_building.jpg"
+                    alt="NIT Jamshedpur Campus"
+                    className="w-full h-56 sm:h-64 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent flex items-end p-5">
+                    <div className="text-white">
+                      <p className="font-bold text-sm sm:text-base">DJLHC & Dept. of Metallurgical and Materials Engg.</p>
+                      <p className="text-xs text-slate-300">NIT Jamshedpur • Jharkhand 831014</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Who Should Attend */}
+                <div className="bg-gradient-to-br from-slate-900 to-blue-950 text-white rounded-2xl p-6 shadow-xl border border-slate-800 space-y-3">
+                  <h4 className="text-base font-bold text-amber-400 uppercase tracking-wider flex items-center gap-2">
+                    <Users className="w-5 h-5 text-amber-400" /> WHO SHOULD ATTEND
+                  </h4>
+                  <ul className="space-y-2 text-xs sm:text-sm text-slate-200">
+                    {WHO_AND_WHY.whoShouldAttend.map((item, i) => (
+                      <li key={i} className="flex items-center gap-2.5 bg-white/10 p-2.5 rounded-lg border border-white/10">
+                        <span className="text-amber-400 font-bold">⮚</span>
+                        <span className="font-medium">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Why Attend */}
+                <div className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-sm space-y-3">
+                  <h4 className="text-base font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                    <Award className="w-5 h-5 text-blue-700" /> WHY ATTEND
+                  </h4>
+                  <ul className="space-y-2 text-xs sm:text-sm text-slate-700">
+                    {WHO_AND_WHY.whyAttend.map((item, i) => (
+                      <li key={i} className="flex items-center gap-2.5 p-2 rounded-lg bg-slate-50 border border-slate-100">
+                        <span className="text-blue-700 font-bold">⮚</span>
+                        <span className="font-medium">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -159,10 +177,10 @@ export default function AboutSection({ onOpenRegister }) {
               <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-800 bg-blue-50 px-3 py-1 rounded-md border border-blue-200">
                 <Building className="w-3.5 h-3.5 text-blue-700" /> Premier Institute of National Importance
               </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-snug">
-                National Institute of Technology Jamshedpur
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-snug font-serif">
+                {ABOUT_TEXTS.institute.heading}
               </h3>
-              <p className="text-slate-700 text-base sm:text-lg leading-relaxed text-justify">
+              <p className="text-slate-700 text-sm sm:text-base leading-relaxed text-justify">
                 {ABOUT_TEXTS.institute.description}
               </p>
 
@@ -170,7 +188,7 @@ export default function AboutSection({ onOpenRegister }) {
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-3">
                 {ABOUT_TEXTS.institute.stats.map((stat, i) => (
                   <div key={i} className="bg-white border border-slate-200 p-3.5 rounded-xl shadow-xs text-center">
-                    <p className="text-xl sm:text-2xl font-black text-blue-900">{stat.value}</p>
+                    <p className="text-lg sm:text-xl font-black text-blue-900">{stat.value}</p>
                     <p className="text-xs text-slate-600 font-semibold mt-0.5">{stat.label}</p>
                   </div>
                 ))}
@@ -181,7 +199,7 @@ export default function AboutSection({ onOpenRegister }) {
               <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200">
                 <img
                   src="/assets/campus_building.jpg"
-                  alt="NIT Jamshedpur Campus Aerial"
+                  alt="NIT Jamshedpur Campus"
                   className="w-full h-64 sm:h-80 object-cover"
                 />
                 <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-lg shadow-md border border-slate-200 flex items-center gap-2 text-xs font-bold text-slate-800">
@@ -190,7 +208,7 @@ export default function AboutSection({ onOpenRegister }) {
               </div>
 
               <div className="p-4 bg-amber-50 border border-amber-200/80 rounded-2xl text-xs sm:text-sm text-amber-950 font-medium">
-                NIT Jamshedpur stands as an epitome of engineering excellence with close academic-industrial synergy with Tata Steel, CSIR-NML, and leading automotive & power leaders.
+                Established under India's Second Five-Year Plan (1956–1961), NIT Jamshedpur continues its legacy of delivering top-tier engineering graduates and leaders in technological innovation.
               </div>
             </div>
           </div>
@@ -200,24 +218,28 @@ export default function AboutSection({ onOpenRegister }) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-slate-50/70 border border-slate-200/80 rounded-3xl p-6 sm:p-10 shadow-sm">
             <div className="lg:col-span-7 space-y-5">
               <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-md border border-emerald-200">
-                <Microscope className="w-3.5 h-3.5 text-emerald-700" /> Department of Metallurgical and Materials Engineering
+                <Microscope className="w-3.5 h-3.5 text-emerald-700" /> Foundational Department (Est. 1960)
               </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-snug">
-                Department of MME (DMME)
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-snug font-serif">
+                {ABOUT_TEXTS.department.heading}
               </h3>
-              <div className="text-slate-700 text-sm sm:text-base leading-relaxed space-y-3 text-justify">
-                {ABOUT_TEXTS.department.description.split('\n\n').map((para, i) => (
-                  <p key={i}>{para}</p>
-                ))}
-              </div>
+              <p className="text-slate-700 text-sm sm:text-base leading-relaxed text-justify">
+                {ABOUT_TEXTS.department.description}
+              </p>
 
-              <div className="space-y-2 pt-2">
-                {ABOUT_TEXTS.department.highlights.map((item, i) => (
-                  <div key={i} className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm font-semibold text-slate-800">{item}</span>
-                  </div>
-                ))}
+              {/* Department Highlights */}
+              <div className="pt-2">
+                <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2.5">
+                  Key Research & Specialization Domains
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {ABOUT_TEXTS.department.specializations.map((spec, i) => (
+                    <div key={i} className="flex items-center gap-2 bg-white border border-slate-200 p-2 rounded-lg text-xs font-medium text-slate-800">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+                      <span>{spec}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -228,28 +250,17 @@ export default function AboutSection({ onOpenRegister }) {
                     <Layers className="w-6 h-6 text-amber-400" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white text-base">State-of-the-Art Facilities</h4>
-                    <p className="text-xs text-slate-400">Advanced Research & Teaching Labs</p>
+                    <h4 className="font-bold text-white text-base">Key Industrial Partners</h4>
+                    <p className="text-xs text-slate-400">Deep Institutional Collaboration</p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-2 text-xs">
-                  <div className="p-2.5 bg-slate-800/80 rounded-lg border border-slate-700">
-                    <p className="font-bold text-amber-400">HR-SEM & EDS</p>
-                    <p className="text-[11px] text-slate-300">Micro-analysis & Imaging</p>
-                  </div>
-                  <div className="p-2.5 bg-slate-800/80 rounded-lg border border-slate-700">
-                    <p className="font-bold text-amber-400">X-Ray Diffraction</p>
-                    <p className="text-[11px] text-slate-300">Crystallographic Phase Id</p>
-                  </div>
-                  <div className="p-2.5 bg-slate-800/80 rounded-lg border border-slate-700">
-                    <p className="font-bold text-amber-400">Mechanical Testing</p>
-                    <p className="text-[11px] text-slate-300">Fatigue, Creep & Impact</p>
-                  </div>
-                  <div className="p-2.5 bg-slate-800/80 rounded-lg border border-slate-700">
-                    <p className="font-bold text-amber-400">NDT & Simulation</p>
-                    <p className="text-[11px] text-slate-300">Defect Detection & FEM</p>
-                  </div>
+                  {ABOUT_TEXTS.department.industryTies.map((ind, i) => (
+                    <div key={i} className="p-2.5 bg-slate-800/80 rounded-lg border border-slate-700 text-center font-bold text-amber-300">
+                      {ind}
+                    </div>
+                  ))}
                 </div>
               </div>
 

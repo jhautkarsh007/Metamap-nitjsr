@@ -5,15 +5,15 @@ import {
   Check, 
   Sparkles, 
   CheckCircle2, 
-  HelpCircle, 
   ArrowRight, 
   ShieldCheck, 
   Building2,
-  FileText
+  Award,
+  ExternalLink
 } from 'lucide-react';
-import { REGISTRATION_FEES, BANK_DETAILS, WORKSHOP_DETAILS } from '../data/workshopData';
+import { REGISTRATION_FEES, PAYMENT_DETAILS, WORKSHOP_DETAILS, CERTIFICATION_NOTE } from '../data/workshopData';
 
-export default function RegistrationFees({ onOpenRegister }) {
+export default function RegistrationFees() {
   const [copiedField, setCopiedField] = useState(null);
 
   const handleCopy = (text, field) => {
@@ -28,13 +28,13 @@ export default function RegistrationFees({ onOpenRegister }) {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-blue-700 font-extrabold text-xs uppercase tracking-widest bg-blue-100/60 px-3.5 py-1.5 rounded-full border border-blue-200 shadow-xs">
-            Fee Structure & Payment
+            Fee & Payment Schedule
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 tracking-tight">
-            Registration Fee & Bank Details
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 mt-3 tracking-tight font-serif uppercase">
+            REGISTRATION FEE
           </h2>
-          <p className="text-slate-600 text-base mt-2">
-            Affordable category-wise participation fee structure. Complete fee waiver for internal NIT Jamshedpur students and faculty.
+          <p className="text-slate-600 text-sm sm:text-base mt-2">
+            Inclusive GST fee structure. Complete fee waiver for internal NIT Jamshedpur students, research scholars, and faculty.
           </p>
           <div className="w-20 h-1.5 bg-amber-500 mx-auto mt-4 rounded-full" />
         </div>
@@ -43,7 +43,7 @@ export default function RegistrationFees({ onOpenRegister }) {
           {/* Fee Table (7 cols) */}
           <div className="lg:col-span-7 bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-sm">
             <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
-              <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2">
+              <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2 font-serif">
                 <CreditCard className="w-5 h-5 text-blue-700" />
                 <span>Category Fee Structure</span>
               </h3>
@@ -93,11 +93,11 @@ export default function RegistrationFees({ onOpenRegister }) {
               ))}
             </div>
 
-            {/* Note on fee waiver */}
-            <div className="mt-6 p-4 bg-blue-50/70 border border-blue-200/80 rounded-2xl text-xs text-blue-950 leading-relaxed flex items-start gap-2.5">
-              <ShieldCheck className="w-4 h-4 text-blue-700 flex-shrink-0 mt-0.5" />
+            {/* Note from Photo 2 & 3 */}
+            <div className="mt-6 p-4 bg-amber-50/80 border border-amber-200/90 rounded-2xl text-xs sm:text-sm text-amber-950 leading-relaxed flex items-start gap-2.5">
+              <Award className="w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5" />
               <span>
-                <strong>Important Note:</strong> Registration fee covers admission to all workshop technical sessions, hands-on lab demonstrations, official workshop kit, tea/coffee refreshments, working lunches, and NIT Jamshedpur accredited participation certificate.
+                <strong>NOTE : </strong> {CERTIFICATION_NOTE}
               </span>
             </div>
           </div>
@@ -110,10 +110,10 @@ export default function RegistrationFees({ onOpenRegister }) {
                   <Building2 className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-amber-400">
-                    Official Bank Details
+                  <h3 className="text-lg font-bold text-amber-400 font-serif">
+                    PAYMENT DETAILS
                   </h3>
-                  <p className="text-xs text-slate-400">For NEFT / RTGS / IMPS / UPI</p>
+                  <p className="text-xs text-slate-400">NEFT / RTGS / IMPS / UPI</p>
                 </div>
               </div>
               <span className="text-[10px] font-black uppercase tracking-wider bg-amber-400/10 text-amber-300 border border-amber-400/30 px-2 py-0.5 rounded">
@@ -129,10 +129,10 @@ export default function RegistrationFees({ onOpenRegister }) {
                 </span>
                 <div className="flex items-center justify-between mt-1 gap-2">
                   <span className="font-mono text-xs sm:text-sm font-bold text-white break-all">
-                    {BANK_DETAILS.accountName}
+                    {PAYMENT_DETAILS.accountName}
                   </span>
                   <button
-                    onClick={() => handleCopy(BANK_DETAILS.accountName, 'accountName')}
+                    onClick={() => handleCopy(PAYMENT_DETAILS.accountName, 'accountName')}
                     className="p-1.5 bg-slate-700 hover:bg-slate-600 rounded text-slate-300 hover:text-white transition-colors flex-shrink-0"
                     title="Copy Account Name"
                   >
@@ -152,10 +152,10 @@ export default function RegistrationFees({ onOpenRegister }) {
                 </span>
                 <div className="flex items-center justify-between mt-1">
                   <span className="font-mono text-lg font-black text-amber-400 tracking-wider">
-                    {BANK_DETAILS.accountNumber}
+                    {PAYMENT_DETAILS.accountNumber}
                   </span>
                   <button
-                    onClick={() => handleCopy(BANK_DETAILS.accountNumber, 'accountNumber')}
+                    onClick={() => handleCopy(PAYMENT_DETAILS.accountNumber, 'accountNumber')}
                     className="p-1.5 bg-slate-700 hover:bg-slate-600 rounded text-slate-300 hover:text-white transition-colors flex-shrink-0"
                     title="Copy Account Number"
                   >
@@ -172,10 +172,10 @@ export default function RegistrationFees({ onOpenRegister }) {
               <div className="grid grid-cols-2 gap-3">
                 <div className="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-xl">
                   <span className="text-[11px] text-slate-400 font-semibold uppercase tracking-wider block">
-                    Bank
+                    Bank Name
                   </span>
                   <span className="font-bold text-white text-xs block mt-1">
-                    {BANK_DETAILS.bankName}
+                    {PAYMENT_DETAILS.bankName}
                   </span>
                 </div>
                 <div className="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-xl">
@@ -183,7 +183,7 @@ export default function RegistrationFees({ onOpenRegister }) {
                     Branch
                   </span>
                   <span className="font-bold text-white text-xs block mt-1">
-                    {BANK_DETAILS.branch}
+                    {PAYMENT_DETAILS.branch}
                   </span>
                 </div>
               </div>
@@ -195,10 +195,10 @@ export default function RegistrationFees({ onOpenRegister }) {
                 </span>
                 <div className="flex items-center justify-between mt-1">
                   <span className="font-mono text-base font-black text-emerald-400 tracking-wider">
-                    {BANK_DETAILS.ifscCode}
+                    {PAYMENT_DETAILS.ifscCode}
                   </span>
                   <button
-                    onClick={() => handleCopy(BANK_DETAILS.ifscCode, 'ifscCode')}
+                    onClick={() => handleCopy(PAYMENT_DETAILS.ifscCode, 'ifscCode')}
                     className="p-1.5 bg-slate-700 hover:bg-slate-600 rounded text-slate-300 hover:text-white transition-colors flex-shrink-0"
                     title="Copy IFSC Code"
                   >
@@ -212,31 +212,18 @@ export default function RegistrationFees({ onOpenRegister }) {
               </div>
             </div>
 
-            {/* Quick Steps */}
-            <div className="pt-2 border-t border-slate-800 text-xs text-slate-300 space-y-1.5">
-              <p className="font-bold text-white mb-2">How to Complete Registration:</p>
-              <p className="flex items-center gap-2">
-                <span className="w-4 h-4 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold">1</span>
-                <span>Transfer the registration fee to the above SBI account.</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <span className="w-4 h-4 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold">2</span>
-                <span>Take a screenshot / note the UTR / Transaction Reference ID.</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <span className="w-4 h-4 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold">3</span>
-                <span>Fill out the online participant registration form.</span>
-              </p>
-            </div>
+           
 
-            {/* Register Action CTA */}
-            <button
-              onClick={onOpenRegister}
-              className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-black py-3.5 px-4 rounded-xl text-sm uppercase tracking-wider shadow-lg hover:shadow-amber-500/30 transition-all"
+            {/* Action CTA Button */}
+            <a
+              href={WORKSHOP_DETAILS.registrationFormUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-black py-3.5 px-4 rounded-xl text-sm uppercase tracking-wider shadow-lg hover:shadow-amber-500/30 transition-all text-center"
             >
               <span>Fill Registration Form</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </a>
           </div>
         </div>
       </div>

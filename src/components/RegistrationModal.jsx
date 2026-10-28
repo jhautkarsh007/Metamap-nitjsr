@@ -12,7 +12,8 @@ import {
   FileCheck2, 
   Printer, 
   AlertCircle,
-  Sparkles
+  Sparkles,
+  ExternalLink
 } from 'lucide-react';
 import { REGISTRATION_FEES, BANK_DETAILS, WORKSHOP_DETAILS } from '../data/workshopData';
 
@@ -56,12 +57,12 @@ export default function RegistrationModal({ isOpen, onClose }) {
         {/* Modal Header */}
         <div className="bg-gradient-to-r from-blue-950 via-slate-900 to-blue-900 text-white p-5 sm:p-6 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-white p-1">
-              <img src="/assets/nit_logo.png" alt="NIT Logo" className="w-full h-full object-contain" />
+            <div className="w-12 h-12 rounded-full bg-white p-0.5 overflow-hidden ring-2 ring-amber-400">
+              <img src="/assets/metamap_logo.png" alt="METAMAP Logo" className="w-full h-full object-cover rounded-full" />
             </div>
             <div>
               <h3 className="text-lg font-black text-white flex items-center gap-2">
-                <span>METAMAP 2026 Registration</span>
+                <span>METAMAP 2027 Registration</span>
                 <span className="text-xs bg-amber-400 text-slate-950 px-2 py-0.5 rounded-full font-bold">Portal</span>
               </h3>
               <p className="text-xs text-blue-200">5-Day Workshop • NIT Jamshedpur</p>
@@ -78,6 +79,23 @@ export default function RegistrationModal({ isOpen, onClose }) {
         {/* Modal Body */}
         {!submitted ? (
           <form onSubmit={handleSubmit} className="p-5 sm:p-8 space-y-5 max-h-[80vh] overflow-y-auto">
+            {/* Direct Google Form Banner */}
+            <div className="p-4 bg-gradient-to-r from-blue-900 to-indigo-900 text-white rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 shadow-md">
+              <div className="text-center sm:text-left">
+                <span className="text-amber-400 text-xs font-bold uppercase tracking-wider block">Official Google Form</span>
+                <p className="text-xs text-blue-100 mt-0.5">You can also register directly via the official Google Form:</p>
+              </div>
+              <a
+                href={WORKSHOP_DETAILS.registrationFormUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-shrink-0 inline-flex items-center gap-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs px-3.5 py-2 rounded-xl transition-all shadow-sm"
+              >
+                <span>Open Google Form</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
+
             {/* Category Selection */}
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
@@ -276,7 +294,7 @@ export default function RegistrationModal({ isOpen, onClose }) {
                 Registration Confirmed!
               </h3>
               <p className="text-xs text-slate-500">
-                Welcome to METAMAP 2026. A confirmation receipt has been generated.
+                Welcome to METAMAP 2027. A confirmation receipt has been generated.
               </p>
             </div>
 

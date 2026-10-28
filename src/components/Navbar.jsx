@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Calendar, FileText, UserCheck, Sparkles, ChevronRight } from 'lucide-react';
 import { WORKSHOP_DETAILS } from '../data/workshopData';
 
-export default function Navbar({ onOpenRegister, onOpenBrochure }) {
+export default function Navbar({ onOpenBrochure }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -17,8 +17,8 @@ export default function Navbar({ onOpenRegister, onOpenBrochure }) {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
-    { name: 'Objectives & Areas', href: '#objectives' },
-    { name: 'Key Features', href: '#features' },
+    { name: 'Course Outline', href: '#modules' },
+    { name: 'Features', href: '#features' },
     // { name: 'Schedule', href: '#schedule' },
     { name: 'Speakers', href: '#speakers' },
     { name: 'Committee', href: '#committee' },
@@ -39,9 +39,9 @@ export default function Navbar({ onOpenRegister, onOpenBrochure }) {
       {/* Top Banner Notice */}
       <div className="bg-gradient-to-r from-blue-950 via-slate-900 to-indigo-950 text-amber-300 text-xs py-1.5 px-4 text-center font-medium border-b border-blue-900/40 relative z-50 flex items-center justify-center gap-2">
         <span className="inline-flex items-center gap-1.5 bg-amber-400/20 text-amber-300 text-[11px] font-bold px-2 py-0.5 rounded-full border border-amber-400/30 animate-pulse">
-          <Sparkles className="w-3 h-3 text-amber-400" /> Hybrid Mode Available
+          <Sparkles className="w-3 h-3 text-amber-400" /> Hybrid / In-Person Mode
         </span>
-        <span className="hidden sm:inline">5-Day National Workshop on Metallurgy (METAMAP 2026) |</span>
+        <span className="hidden sm:inline">5-Day Workshop on Metallurgy & Materials |</span>
         <span className="font-semibold text-white flex items-center gap-1">
           <Calendar className="w-3.5 h-3.5 text-amber-400" /> {WORKSHOP_DETAILS.dates}
         </span>
@@ -59,17 +59,17 @@ export default function Navbar({ onOpenRegister, onOpenBrochure }) {
           <div className="flex items-center justify-between">
             {/* Logo and Branding */}
             <a href="#home" className="flex items-center gap-3 group">
-              <div className="w-11 h-11 rounded-full bg-white p-1 shadow-md flex items-center justify-center ring-2 ring-blue-500/30 group-hover:ring-amber-500 transition-all">
+              <div className="w-12 h-12 rounded-full bg-white p-0.5 shadow-md flex items-center justify-center ring-2 ring-blue-500/30 group-hover:ring-amber-500 transition-all overflow-hidden">
                 <img
-                  src="/assets/nit_logo.png"
-                  alt="NIT Jamshedpur Logo"
-                  className="w-full h-full object-contain"
+                  src="/assets/metamap_logo.png"
+                  alt="METAMAP 2027 Official Logo"
+                  className="w-full h-full object-cover rounded-full"
                 />
               </div>
               <div className="flex flex-col">
                 <span className={`text-base font-extrabold tracking-tight flex items-center gap-1.5 ${scrolled ? 'text-blue-950' : 'text-white'}`}>
                   <span>METAMAP</span>
-                  <span className="text-amber-500 font-black">2026</span>
+                  <span className="text-amber-500 font-black">2027</span>
                 </span>
                 <span className={`text-[10px] uppercase font-bold tracking-wider ${scrolled ? 'text-slate-500' : 'text-slate-400'}`}>
                   Dept. of MME • NIT Jamshedpur
@@ -102,33 +102,37 @@ export default function Navbar({ onOpenRegister, onOpenBrochure }) {
             <div className="hidden sm:flex items-center gap-2.5">
               <button
                 onClick={onOpenBrochure}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all border ${
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all border cursor-pointer ${
                   scrolled
                     ? 'border-slate-300 text-slate-700 hover:bg-slate-100'
                     : 'border-slate-700 text-slate-200 hover:bg-slate-800'
                 }`}
               >
-                <FileText className="w-3.5 h-3.5 text-blue-500" />
+                <FileText className="w-3.5 h-3.5 text-amber-500" />
                 <span>Brochure</span>
               </button>
 
-              <button
-                onClick={onOpenRegister}
+              <a
+                href={WORKSHOP_DETAILS.registrationFormUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 px-4 py-2 rounded-lg text-xs font-black shadow-md hover:shadow-lg hover:shadow-amber-500/20 transition-all uppercase tracking-wider"
               >
                 <UserCheck className="w-3.5 h-3.5" />
                 <span>Register Now</span>
-              </button>
+              </a>
             </div>
 
             {/* Mobile Hamburger Toggle */}
             <div className="flex xl:hidden items-center gap-2">
-              <button
-                onClick={onOpenRegister}
+              <a
+                href={WORKSHOP_DETAILS.registrationFormUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="sm:hidden inline-flex items-center gap-1 bg-amber-500 text-slate-950 px-2.5 py-1.5 rounded-md text-xs font-bold"
               >
                 Register
-              </button>
+              </a>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className={`p-2 rounded-lg transition-colors ${
@@ -170,21 +174,21 @@ export default function Navbar({ onOpenRegister, onOpenBrochure }) {
                   setMobileMenuOpen(false);
                   onOpenBrochure();
                 }}
-                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-slate-800 text-slate-200 text-xs font-bold border border-slate-700"
+                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-slate-800 text-slate-200 text-xs font-bold border border-slate-700 cursor-pointer"
               >
-                <FileText className="w-4 h-4 text-blue-400" />
+                <FileText className="w-4 h-4 text-amber-400" />
                 <span>Brochure</span>
               </button>
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenRegister();
-                }}
+              <a
+                href={WORKSHOP_DETAILS.registrationFormUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
                 className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-black"
               >
                 <UserCheck className="w-4 h-4" />
                 <span>Register</span>
-              </button>
+              </a>
             </div>
           </div>
         )}

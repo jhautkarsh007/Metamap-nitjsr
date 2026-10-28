@@ -176,7 +176,7 @@ export default function ScheduleSection({ onOpenBrochure }) {
 
                     {/* Venue tag */}
                     <span className="text-[11px] text-slate-500 font-medium hidden sm:block">
-                      {isDemo ? 'DMME Testing Laboratories' : 'Lecture Hall 212, DJLHC'}
+                      {isDemo ? 'DMME Testing Laboratories' : 'DJLHC, NIT Jamshedpur'}
                     </span>
                   </div>
 

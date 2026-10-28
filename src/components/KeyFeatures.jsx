@@ -9,7 +9,7 @@ import {
   CheckCircle,
   Sparkles
 } from 'lucide-react';
-import { KEY_FEATURES } from '../data/workshopData';
+import { KEY_FEATURES, WORKSHOP_DETAILS } from '../data/workshopData';
 
 const ICON_MAP = {
   Presentation: Presentation,
@@ -20,7 +20,7 @@ const ICON_MAP = {
   ShieldCheck: ShieldCheck
 };
 
-export default function KeyFeatures({ onOpenRegister }) {
+export default function KeyFeatures() {
   return (
     <section id="features" className="py-20 bg-slate-50 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -29,11 +29,11 @@ export default function KeyFeatures({ onOpenRegister }) {
           <span className="text-blue-700 font-extrabold text-xs uppercase tracking-widest bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200 shadow-xs">
             Workshop Highlights
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 tracking-tight">
-            Key Features of METAMAP 2026
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 tracking-tight font-serif">
+            KEY FEATURES
           </h2>
-          <p className="text-slate-600 text-base mt-2">
-            A comprehensive, immersive pedagogical format structured to maximize theoretical depth, practical exposure, and cross-sector networking.
+          <p className="text-slate-600 text-sm sm:text-base mt-2">
+            Key pillars of the 5-day curriculum designed for industry engineers, academicians, and students.
           </p>
           <div className="w-20 h-1.5 bg-amber-500 mx-auto mt-4 rounded-full" />
         </div>
@@ -80,19 +80,19 @@ export default function KeyFeatures({ onOpenRegister }) {
         {/* Feature CTA Strip */}
         <div className="mt-14 bg-gradient-to-r from-blue-950 via-slate-900 to-blue-950 rounded-2xl p-6 sm:p-8 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="space-y-1 text-center sm:text-left">
-            <h4 className="text-lg sm:text-xl font-bold text-white">
+            <h4 className="text-lg sm:text-xl font-bold text-white font-serif">
               Ready to elevate your metallurgical and characterization expertise?
             </h4>
             <p className="text-xs sm:text-sm text-slate-300">
-              Limited seats available for laboratory demonstration batches and hybrid registrations.
+              Registration is open for students of all departments, academicians, and industry professionals.
             </p>
           </div>
-          <button
-            onClick={onOpenRegister}
-            className="flex-shrink-0 bg-amber-500 hover:bg-amber-600 text-slate-950 font-black px-6 py-3 rounded-xl text-xs sm:text-sm uppercase tracking-wider shadow-md hover:shadow-amber-500/30 transition-all"
+          <a
+            href="#registration"
+            className="flex-shrink-0 bg-amber-500 hover:bg-amber-600 text-slate-950 font-black px-6 py-3 rounded-xl text-xs sm:text-sm uppercase tracking-wider shadow-md hover:shadow-amber-500/30 transition-all text-center"
           >
-            Register Now
-          </button>
+            View Fee Details
+          </a>
         </div>
       </div>
     </section>
