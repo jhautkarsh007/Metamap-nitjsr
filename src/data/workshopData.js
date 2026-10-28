@@ -280,7 +280,10 @@ export const COMMITTEE = {
     "Dr. Partha Duley",
     "Dr. Monalisa Mandal",
     "Dr. Binay Kumar",
-    "Dr. Ashwinee Kumar"
+    "Dr. Ashwinee Kumar",
+    "Dr. Soumitra Tarafdar",
+    "Dr. Manish Roy",
+    "Dr. T.K. Roy"
   ]
 };
 
