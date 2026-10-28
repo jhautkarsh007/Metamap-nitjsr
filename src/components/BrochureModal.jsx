@@ -77,17 +77,6 @@ export default function BrochureModal({ isOpen, onClose }) {
               <span>Open PDF</span>
             </a>
 
-            {/* Open Canva */}
-            <a
-              href={WORKSHOP_DETAILS.brochureCanvaUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-colors border border-slate-700"
-            >
-              <ExternalLink className="w-3.5 h-3.5 text-amber-400" />
-              <span className="hidden sm:inline">Canva</span>
-            </a>
-
             {/* Close Button */}
             <button
               onClick={onClose}

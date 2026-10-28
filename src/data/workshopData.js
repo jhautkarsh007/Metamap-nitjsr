@@ -24,7 +24,6 @@ export const WORKSHOP_DETAILS = {
   },
   registrationFormUrl: "https://forms.gle/cFHKjGLonNiXDJx2A",
   websiteUrl: "https://metamap-nitjsr.vercel.app/",
-  brochureCanvaUrl: "https://www.canva.com/design/DAHY7SRIJhs/0h0UNc4bpZB8_wDj26-Zuw/edit",
   brochurePdfUrl: "/assets/METAMAP_2027_Brochure.pdf",
   brochureImages: [
     {

@@ -54,7 +54,7 @@ function App() {
         /> */}
 
         {/* Keynote & Resource Speakers */}
-        <SpeakersSection />
+        {/* <SpeakersSection /> */}
 
         {/* Organizing Leadership & Patrons */}
         <CommitteeSection />
