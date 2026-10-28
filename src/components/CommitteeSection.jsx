@@ -123,11 +123,11 @@ export default function CommitteeSection() {
                   key={idx}
                   className="bg-white border-2 border-blue-100 hover:border-blue-300 rounded-3xl p-6 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col sm:flex-row items-center sm:items-start gap-5"
                 >
-                  <div className="w-24 h-24 rounded-2xl bg-slate-100 p-0.5 ring-4 ring-blue-500/20 overflow-hidden flex-shrink-0 shadow-sm">
+                  <div className="w-24 h-24 rounded-full bg-white p-1 ring-4 ring-blue-500/25 border-2 border-blue-600 overflow-hidden flex-shrink-0 shadow-md">
                     <img
                       src={conv.image}
                       alt={conv.name}
-                      className="w-full h-full object-cover rounded-2xl"
+                      className="w-full h-full object-cover rounded-full"
                       onError={(e) => { e.target.src = '/assets/nit_logo.png'; }}
                     />
                   </div>
@@ -185,11 +185,11 @@ export default function CommitteeSection() {
                   key={idx}
                   className="bg-slate-50/70 border border-slate-200 hover:border-amber-300 rounded-3xl p-6 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col sm:flex-row items-center sm:items-start gap-5"
                 >
-                  <div className="w-24 h-24 rounded-2xl bg-slate-100 p-0.5 ring-4 ring-amber-500/20 overflow-hidden flex-shrink-0 shadow-sm">
+                  <div className="w-24 h-24 rounded-full bg-white p-1 ring-4 ring-amber-500/25 border-2 border-amber-500 overflow-hidden flex-shrink-0 shadow-md">
                     <img
                       src={coord.image}
                       alt={coord.name}
-                      className="w-full h-full object-cover rounded-2xl"
+                      className="w-full h-full object-cover rounded-full"
                       onError={(e) => { e.target.src = '/assets/nit_logo.png'; }}
                     />
                   </div>
